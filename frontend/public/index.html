@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask Form via Express Frontend</title>
+</head>
+<body>
+    <h2>Submit Your Info</h2>
+    <form id="form">
+        <input type="text" id="name" name="name" placeholder="Name" required><br><br>
+        <input type="email" id="email" name="email" placeholder="Email" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="response"></p>
+
+    <script>
+        const form = document.getElementById('form');
+        const responseP = document.getElementById('response');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            const res = await fetch('http://localhost:5000/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, email })
+            });
+
+            const data = await res.json();
+            responseP.innerText = data.message;
+        });
+    </script>
+</body>
+</html>
