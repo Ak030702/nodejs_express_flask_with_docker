@@ -18,5 +18,5 @@ services:
     depends_on:
       - backend
     restart: always
-networks
+networks:
    my_network:
