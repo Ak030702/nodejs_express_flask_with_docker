@@ -2,7 +2,8 @@ version: '3.8'
 
 services:
   backend:
-    image:abhishekkemana/node_backend
+    image:
+     - "abhishekkemana/node_backend"
     ports:
       - "5000:5000"
     networks:
