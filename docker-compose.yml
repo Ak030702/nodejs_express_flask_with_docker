@@ -2,23 +2,22 @@ version: '3.8'
 
 services:
   backend:
-    image:
-     name: abhishekkemana/node_backend
+    image: abhishekkemana/node_backend
     ports:
       - "5000:5000"
     networks:
-      - "my_network"
+      - my_network
     restart: always
 
   frontend:
-    image:
-     name: abhishekkemana/node_frontend
+    image: abhishekkemana/node_frontend
     ports:
       - "3000:3000"
     networks:
-      - "my_network"
+      - my_network
     depends_on:
       - backend
     restart: always
+
 networks:
-   my_network:
+  my_network:
