@@ -10,7 +10,7 @@ services:
     restart: always
 
   frontend:
-    image: abhishekkemana/node_b
+    image: abhishekkemana/node_f
     ports:
       - "3000:3000"
     networks:
